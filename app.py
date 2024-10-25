@@ -1,7 +1,22 @@
 from flask import Flask, jsonify, request
-# import yfinance as yf
+import yfinance as yf
+import requests
+import pandas as pd
 
 app = Flask(__name__)
+
+@app.route('/data')
+def fetch_data():
+    # Use the `requests` library to get data from an API
+    response = requests.get("https://api.example.com/data")
+    data = response.json()
+    
+    # Use `pandas` to work with the data
+    df = pd.DataFrame(data)
+    summary = df.describe().to_dict()  # Simple data summary
+    
+    return jsonify(summary)
+
 
 @app.route('/', methods=['GET'])
 def home():
