@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-import yfinance as yf
+# import yfinance as yf
 import requests
 import pandas as pd
 
