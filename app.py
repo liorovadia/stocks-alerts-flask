@@ -3,9 +3,12 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/stock', methods=['GET'])
-def get_stock_data():
+@app.route('/', methods=['GET'])
+def home():
     return "<h1>Lior's Flask test</h1>"
+
+@app.route('/stock', methods=['GET'])  
+def get_stock_data():
     # symbol = request.args.get('symbol')
     # if not symbol:
     #     return jsonify({"error": "Stock symbol is required"}), 400
