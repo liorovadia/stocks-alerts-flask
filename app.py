@@ -7,15 +7,16 @@ app = Flask(__name__)
 
 @app.route('/data')
 def fetch_data():
+    return "<h1>Hello from data route</h1>"
     # Use the `requests` library to get data from an API
-    response = requests.get("https://api.example.com/data")
-    data = response.json()
+    # response = requests.get("https://api.example.com/data")
+    # data = response.json()
     
     # Use `pandas` to work with the data
-    df = pd.DataFrame(data)
-    summary = df.describe().to_dict()  # Simple data summary
+    # df = pd.DataFrame(data)
+    # summary = df.describe().to_dict()  # Simple data summary
     
-    return jsonify(summary)
+    # return jsonify(summary)
 
 
 @app.route('/', methods=['GET'])
