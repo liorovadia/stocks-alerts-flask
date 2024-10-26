@@ -5,8 +5,11 @@ import requests
 import pandas as pd
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+# CORS(app)  # Enable CORS for all routes
 # CORS(app, origins=["http://localhost:3000"]) # allow requests only from localhost:3000
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True, 
+     expose_headers=["Content-Type", "Authorization", "Access-Control-Allow-Origin"],
+     allow_headers=["Content-Type", "Authorization", "Access-Control-Allow-Origin"])
 
 @app.route('/data')
 def fetch_data():
